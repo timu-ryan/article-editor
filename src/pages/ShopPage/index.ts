@@ -1,1 +1,1 @@
-export { LazyShop as Shop } from './ui/ShopPage.lazy'
+export { LazyShop as ShopPage } from './ui/ShopPage.lazy'
