@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import {classNames} from "@/shared/lib/classNames/classNames";
 import { useTheme} from "@/shared/lib/hooks/useTheme";
 import { Navbar } from "@/widgets/Navbar";
+import { Sidebar } from "@/widgets/Sidebar";
 
 export default function RootLayout() {
   return (
@@ -11,9 +12,14 @@ export default function RootLayout() {
       <ThemedProvider>
         {/* header */}
         <Navbar />
-        <Suspense fallback={'Loading...'}>
-          <Outlet />
-        </Suspense>
+        <div className='content-page'>
+          <Sidebar />
+          <Suspense fallback={'Loading...'}>
+            <div className="page-wrapper">
+              <Outlet />
+            </div>
+          </Suspense>
+        </div>
         {/*footer*/}
       </ThemedProvider>
     </ThemeProvider>
